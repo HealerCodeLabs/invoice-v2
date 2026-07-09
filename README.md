@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Invoice V2
+
+A modern Next.js application for invoice management with authentication and Prisma-backed persistence.
+
+## Features
+
+- Next.js 16 app router
+- NextAuth authentication flows for sign in / sign up
+- Prisma + SQLite (or configured database) for user and invoice data
+- Tailwind CSS styling
+- Auth-protected dashboard
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Generate Prisma client and run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` - start development server
+- `npm run build` - generate Prisma client and build the app
+- `npm run start` - start the production server
+- `npm run lint` - run ESLint
+- `npm run prisma:generate` - generate Prisma client
+- `npm run prisma:migrate` - run Prisma migrations locally
+- `npm run prisma:deploy` - deploy Prisma migrations
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app/` - application routes and pages
+- `src/components/` - reusable React components
+- `src/lib/` - authentication and Prisma helpers
+- `src/prisma/schema.prisma` - Prisma schema
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Authentication
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This app includes sign in and sign up pages under:
 
-## Deploy on Vercel
+- `/auth/signin`
+- `/auth/signup`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+After signing in, the dashboard is available at `/dashboard`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+
+This project is configured for Next.js v16 with Tailwind CSS v4 and Prisma v7.
